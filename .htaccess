@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Never expose configuration or stored media through directory browsing.
+<FilesMatch "^(config\.php|config\.example\.php)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
